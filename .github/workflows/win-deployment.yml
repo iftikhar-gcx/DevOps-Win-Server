@@ -15,6 +15,6 @@ jobs:
       
       - name: Step 2 - Deploy to Windows Server
         run : |
-          sshpass -p ${{ secrets.SERVER_PASSWORD }} \
+          sshpass -p "${{ secrets.SERVER_PASSWORD }}" \
             scp -r nishant.html \
             ${{ secrets.USER_NAME }}@${{ secrets.SERVER_IP }}:'C:\inetpub\wwwroot\'
