@@ -1,0 +1,20 @@
+name: Pushing HTML file to Windows Server
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deployment_job:
+    name: Deploy to Windows Server
+    runs-on: ubuntu-latest
+    steps:
+      - name: Step 1 - Checkout
+        uses: actions/checkout@v4
+      
+      - name: Step 2 - Deploy to Windows Server
+        run : |
+          sshpass -p ${{ secrets.SERVER_PASSWORD }} \
+            scp -r nishant.html \
+            ${{ secrets.USER_NAME }}@${{ secrets.SERVER_IP }}:'C:\inetpub\wwwroot\'
