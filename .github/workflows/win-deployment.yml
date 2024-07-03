@@ -16,5 +16,5 @@ jobs:
       - name: Step 2 - Deploy to Windows Server
         run : |
           sshpass -p "${{ secrets.SERVER_PASSWORD }}" \
-            scp -o StrictHostKeyChecking=no -r nishant.html \
+            scp -o StrictHostKeyChecking=no -r iftikhar.html \
             ${{ secrets.USER_NAME }}@${{ secrets.SERVER_IP }}:'C:\inetpub\wwwroot\'
